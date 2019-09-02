@@ -22,20 +22,23 @@ http.createServer(function(req,res){
       .toLowerCase();
    switch(path) {
           case '':
-                 serveStaticFile(res, '/home.html', 'text/html');
-                 serveStaticFile(res, '/home2.html', 'text/html');
+                 serveStaticFile(res, '/public/home.html', 'text/html');
+                 serveStaticFile(res, '/public/home2.html', 'text/html');
                  break;
           case '/blue':
-                 serveStaticFile(res, '/blue.html', 'text/html');
+                 serveStaticFile(res, '/public/blue.html', 'text/html');
                  break;
           case '/green':
-                 serveStaticFile(res, '/green.html', 'text/html');
+                 serveStaticFile(res, '/public/green.html', 'text/html');
                  break;
           case '/about':
-                 serveStaticFile(res, '/about.html', 'text/html');
+                 serveStaticFile(res, '/public/about.html', 'text/html');
+                 break;
+          case '/img/logo.jpg':
+                 serveStaticFile(res, '/public/img/logo.jpg', 'image/jpeg');
                  break;
           default:
-                 serveStaticFile(res, '/404.html', 'text/html',
+                 serveStaticFile(res, '/public/404.html', 'text/html',
                                404);
                  break;
  }
