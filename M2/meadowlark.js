@@ -7,6 +7,8 @@ var handlebars = require('express3-handlebars')
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
+app.use(express.static(__dirname + '/public'));
+
 var fortunes = [
  "Conquer your fears or they will conquer you.",
  "Rivers need springs.",
@@ -15,10 +17,19 @@ var fortunes = [
  "Whenever possible, keep it simple.",
 ];
 
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
 app.set('port', process.env.PORT || 3000);
 
 app.get('/', function(req, res) {
  res.render('home');
+});
+
+app.get('/datetime', function(req, res){
+ var dateTime = date+' '+time;
+ res.render('datetime', {timedate: dateTime});
 });
 
 app.get('/about', function(req, res){
@@ -26,8 +37,6 @@ app.get('/about', function(req, res){
  fortunes[Math.floor(Math.random() * fortunes.length)];
  res.render('about', { fortune: randomFortune });
 });
-
-app.use(express.static(__dirname + '/public'));
 
 // 404 catch-all handler (middleware)
 app.use(function(req, res, next){
