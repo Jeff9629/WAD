@@ -29,7 +29,7 @@ app.get('/', function(req, res) {
 
 app.get('/datetime', function(req, res){
  var dateTime = date+' '+time;
- res.render('datetime', {timedate: dateTime});
+ res.render('datetime', {datetime: dateTime});
 });
 
 app.get('/about', function(req, res){
