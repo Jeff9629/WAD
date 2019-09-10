@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-
+var fortune = require('./lib/fortune.js');
 // set up handlebars view engine
 var handlebars = require('express3-handlebars')
  .create({ defaultLayout:'main' });
@@ -9,13 +9,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static(__dirname + '/public'));
 
-var fortunes = [
- "Conquer your fears or they will conquer you.",
- "Rivers need springs.",
- "Do not fear what you don't know.",
- "You will have a pleasant surprise.",
- "Whenever possible, keep it simple.",
-];
+var textColors = ['red', 'blue', 'green', 'yellow'];
 
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -32,10 +26,14 @@ app.get('/datetime', function(req, res){
  res.render('datetime', {datetime: dateTime});
 });
 
-app.get('/about', function(req, res){
- var randomFortune =
- fortunes[Math.floor(Math.random() * fortunes.length)];
- res.render('about', { fortune: randomFortune });
+app.get('/random', function(req, res){
+ var randomColor =
+ textColors[Math.floor(Math.random() * textColors.length)];
+ res.render('random', {random: randomColor});
+});
+
+app.get('/about', function(req, res) {
+ res.render('about', { fortune: fortune.getFortune() } );
 });
 
 // 404 catch-all handler (middleware)
