@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+ <title>My Handlebars Website</title>
+</head>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+<ul>
+  <li><a href="http://jpalmi.it.pointpark.edu:3002/">Home</a></li>
+  <li><a href="http://jpalmi.it.pointpark.edu:3002/datetime/">Date / Time</a></li>
+  <li><a href="http://jpalmi.it.pointpark.edu:3002/random/">Random Page</a></li>
+  <li><a href="http://jpalmi.it.pointpark.edu:3002/about/">Fortunes</a></li>
+</ul>
+<br><br>
+<body>
+ <header><img src="/img/logo.png" alt="My Handlebars Website Logo" width="12%"></header>
+ {{{body}}}
+</body>
+<footer>This is a deafult footer.</footer>
+</html>
