@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <title>My Handlebars Website</title>
+   {{#if showTests}}
+   <link rel="stylesheet" href="/vendor/mocha.css">
+   {{/if}}
+   <script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
+</head>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/datetime">Date / Time</a></li>
+  <li><a href="/random">Random Page</a></li>
+  <li><a href="/about">Fortunes</a></li>
+</ul>
+<br><br>
+<body style = "background-color: rgb(0, 0, 255)">
+  <header><img src="/img/logo.png" alt="My Handlebars Website Logo" width="12%"></header>
+
+ {{{body}}}
+
+ {{#if showTests}}
+ <div id="mocha"></div>
+ <script src="/vendor/mocha.js"></script>
+ <script src="/vendor/chai.js"></script>
+ <script>
+ mocha.ui('tdd');
+ var assert = chai.assert;
+ </script>
+ <script src="/qa/tests-global.js"></script>
+ {{#if pageTestScript}}
+ <script src="{{pageTestScript}}"></script>
+ {{/if}}
+ <script>mocha.run();</script>
+ {{/if}}
+
+</body>
+<footer>This is a deafult footer.</footer>
+</html>
