@@ -1,0 +1,30 @@
+<h1>Welcome to My Website</h1>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+<p>Here you will find that I am able to demonstarte the basics of the M5 assignment.</p>
+<h3>Course Information</h3>
+<br>
+<table>
+<tbody>
+  <tr>
+    <th>Course Name</th>
+    <th>Course Code</th>
+    <th>Description</th>
+    <th>Number of Credits</th>
+    <th>Instructor</th>
+  </tr>
+  {{#each people}}
+    <tr>
+      <td>{{name}}</td>
+    	<td>{{code}}</td>
+      <td>{{des}}</td>
+      <td>{{num}}</td>
+      <td>{{ins}}</td>
+    </tr>
+  {{/each}}
+</tbody>
+</table>
+<br>
